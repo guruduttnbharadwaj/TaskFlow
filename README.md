@@ -1,149 +1,118 @@
-#  TaskFlow – Full Stack Intern Assignment
+#  TaskFlow – 
 
-A modern, scalable full-stack web application featuring Authentication, a Dashboard, and Task Management.  
-Built using React (Vite) on the frontend and Node.js (Express) on the backend.
+A modern, scalable web application featuring Authentication, a Dashboard, and Task Management.  
+Built with React (Vite) and Node.js.
 
 ---
 
 ##  Overview
 
-TaskFlow is a Proof of Concept (PoC) project demonstrating a complete full-stack workflow with secure authentication, protected routes, and CRUD functionality.
-
-The project emphasizes clean architecture, scalability, and developer portability.
+This project is a Proof of Concept (PoC) for a scalable web application.  
+It demonstrates a complete full-stack integration with secure authentication, protected routes, and CRUD operations.
 
 ---
 
-## ✨ Features
+##  Live Features
 
-###  Authentication
-- Secure user registration and login
-- JWT (JSON Web Tokens) for authentication
-- bcrypt for password hashing
-- Protected routes for authorized users only
+**Authentication**  
+Secure Login and Registration using JWT (JSON Web Tokens) and bcrypt for password hashing.
 
-###  Dashboard
-- Displays user profile details:
-  - Username
-  - Join Date
-- Real-time task progress tracking
+**Dashboard**  
+User profile display (Join Date, Username) and real-time task progress tracking.
 
-###  Task Management
-- Full CRUD operations:
-  - Create tasks
-  - Read tasks
-  - Toggle task completion
-  - Delete tasks
+**Task Management**  
+Full CRUD operations (Create, Read, Update/Toggle, Delete).
 
-### 🔍 Search & Filter
-- Real-time task filtering using a responsive search bar
+**Search & Filter**  
+Real-time filtering of tasks via a responsive search bar.
 
-###  UI / UX
-- Modern glassmorphism design
-- Smooth animations
-- Fully responsive layout
-- Built with pure CSS and React
+**UI / UX**  
+Modern Glassmorphism aesthetics, smooth animations, and responsive design using pure CSS and React.
 
 ---
 
 ##  Tech Stack
 
-### Frontend
-- React.js
-- Vite
-- Lucide-React
+**Frontend**  
+React.js, Vite, Lucide-React (Icons)
 
-### Backend
-- Node.js
-- Express.js
+**Backend**  
+Node.js, Express.js
 
-### Security
-- JWT (Authentication)
-- bcrypt (Password Hashing)
-- CORS
+**Security**  
+JWT (Authentication), Bcrypt (Password Hashing), CORS
 
-### Database
-- File-based JSON storage (NoSQL simulation)
+**Database**  
+Portable JSON-based File System (Simulating NoSQL)
 
 ---
 
 ##  Installation & Setup Guide
 
-###  Prerequisites
-- Node.js installed on your system
+Follow these steps to run the project locally.
 
 ---
 
-## Backend Setup
+##  Prerequisites
 
-The backend runs on port 5000.
+Node.js installed on your machine.
 
-Steps:
-- Navigate to the backend folder: cd backend
-- Install dependencies: npm install
-- Start the server: node server.js
+---
 
-Expected output:
+##  Backend Setup
+
+The backend runs on port 5000 and handles all API requests.
+
+Steps to run the backend:
+- Navigate to the backend folder: `cd backend`
+- Install dependencies (Express, CORS, Bcrypt, JWT): `npm install`
+- Start the server: `node server.js`
+
+You should see:  
 Backend running on port 5000
 
 ---
 
 ##  Frontend Setup
 
+Open a new terminal window.  
 The frontend runs on port 5173.
 
-Steps:
-- Navigate to the frontend folder: cd frontend
-- Install dependencies: npm install
-- Start the dev server: npm run dev
+Steps to run the frontend:
+- Navigate to the frontend folder: `cd frontend`
+- Install dependencies (React, Vite, Lucide): `npm install`
+- Start the development server: `npm run dev`
 
-Open the URL shown in the terminal (usually http://localhost:5173).
+Click the link shown in the terminal (usually http://localhost:5173) to view the app.
 
 ---
 
 ##  Architectural Decisions
 
-###  Database Strategy (Scalability Note)
+### Database Strategy (Scalability Note)
 
-A file-based JSON database (backend/database.json) is used to ensure maximum portability.
+For the purpose of this assignment and to ensure maximum portability for the evaluator, a File-Based JSON Database (`backend/database.json`) is used.
 
-Why this approach?
-- No external database setup required
-- Runs instantly on any machine
-- Ideal for evaluation and PoC purposes
+**Why this approach?**  
+It allows the application to run immediately on any machine without requiring a local MongoDB service installation or cloud configuration.
 
-Scalability:
-- Backend structure is modular
-- readDB and writeDB helper functions can be replaced with MongoDB/Mongoose
-- No changes required to API routes or frontend logic
+**Scalability**  
+The code structure is modular. In a production environment, the `readDB` and `writeDB` helper functions in `server.js` can be easily replaced with Mongoose/MongoDB calls without changing the API logic or frontend.
 
 ---
 
-##  API Endpoints
+## API Endpoints
 
-Method | Endpoint | Description | Protected
-POST | /api/register | Register a new user | No
-POST | /api/login | Login and receive JWT | No
-GET | /api/profile | Get logged-in user details | Yes
-GET | /api/tasks | Fetch all user tasks | Yes
-POST | /api/tasks | Create a new task | Yes
-PUT | /api/tasks/:id | Update or toggle task status | Yes
-DELETE | /api/tasks/:id | Delete a task | Yes
-
----
-
-##  Proof of Concept Notes
-
-- Designed as a scalable PoC
-- Demonstrates real-world authentication and CRUD patterns
-- Easily extendable to production-grade architecture
+| Method | Endpoint | Description | Protected |
+|------|----------|------------|-----------|
+| POST | /api/register | Register a new user | No |
+| POST | /api/login | Login and receive JWT | No |
+| GET | /api/profile | Get logged-in user details | Yes (Token) |
+| GET | /api/tasks | Get all tasks for user | Yes (Token) |
+| POST | /api/tasks | Create a new task | Yes (Token) |
+| PUT | /api/tasks/:id | Update task (toggle status) | Yes (Token) |
+| DELETE | /api/tasks/:id | Delete a task | Yes (Token) |
 
 ---
 
-##  Final Notes
-
-This project showcases:
-- End-to-end full-stack development
-- Secure authentication flow
-- Clean and modern UI/UX
-- Scalable backend architecture
 
