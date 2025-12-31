@@ -1,146 +1,149 @@
-TaskFlow 
-A modern, scalable web application featuring Authentication, a Dashboard, and Task Management. Built with React (Vite) and Node.js.
+#  TaskFlow – Full Stack Intern Assignment
 
-🚀 Overview
+A modern, scalable full-stack web application featuring Authentication, a Dashboard, and Task Management.  
+Built using React (Vite) on the frontend and Node.js (Express) on the backend.
 
-This project is a Proof of Concept (PoC) for a scalable web application. It demonstrates a complete full-stack integration with secure authentication, protected routes, and CRUD operations.
+---
 
-Live Features:
+##  Overview
 
-Authentication: Secure Login & Registration using JWT (JSON Web Tokens) & bcrypt for password hashing.
+TaskFlow is a Proof of Concept (PoC) project demonstrating a complete full-stack workflow with secure authentication, protected routes, and CRUD functionality.
 
-Dashboard: User profile display (Join Date, Username) and real-time task progress tracking.
+The project emphasizes clean architecture, scalability, and developer portability.
 
-Task Management: Full CRUD (Create, Read, Update/Toggle, Delete) operations.
+---
 
-Search & Filter: Real-time filtering of tasks via a responsive search bar.
+## ✨ Features
 
-UI/UX: Modern Glassmorphism aesthetics, smooth animations, and responsive design using pure CSS and React.
+###  Authentication
+- Secure user registration and login
+- JWT (JSON Web Tokens) for authentication
+- bcrypt for password hashing
+- Protected routes for authorized users only
 
-🛠️ Tech Stack
+###  Dashboard
+- Displays user profile details:
+  - Username
+  - Join Date
+- Real-time task progress tracking
 
-Frontend: React.js, Vite, Lucide-React (Icons).
+###  Task Management
+- Full CRUD operations:
+  - Create tasks
+  - Read tasks
+  - Toggle task completion
+  - Delete tasks
 
-Backend: Node.js, Express.js.
+### 🔍 Search & Filter
+- Real-time task filtering using a responsive search bar
 
-Security: JWT (Authentication), Bcrypt (Password Hashing), CORS.
+###  UI / UX
+- Modern glassmorphism design
+- Smooth animations
+- Fully responsive layout
+- Built with pure CSS and React
 
-Database: Portable JSON-based File System (Simulating NoSQL).
+---
 
-📦 Installation & Setup Guide
+##  Tech Stack
 
-Follow these steps to run the project locally.
+### Frontend
+- React.js
+- Vite
+- Lucide-React
 
-Prerequisites
+### Backend
+- Node.js
+- Express.js
 
-Node.js installed on your machine.
+### Security
+- JWT (Authentication)
+- bcrypt (Password Hashing)
+- CORS
 
-1. Backend Setup
+### Database
+- File-based JSON storage (NoSQL simulation)
 
-The backend runs on port 5000 and handles all API requests.
+---
 
-# Navigate to the backend folder
-cd backend
+##  Installation & Setup Guide
 
-# Install dependencies (Express, CORS, Bcrypt, JWT)
-npm install
+###  Prerequisites
+- Node.js installed on your system
 
-# Start the server
-node server.js
+---
 
+## Backend Setup
 
-You should see: Backend running on port 5000
+The backend runs on port 5000.
 
-2. Frontend Setup
+Steps:
+- Navigate to the backend folder: cd backend
+- Install dependencies: npm install
+- Start the server: node server.js
 
-Open a new terminal window. The frontend runs on port 5173.
+Expected output:
+Backend running on port 5000
 
-# Navigate to the frontend folder
-cd frontend
+---
 
-# Install dependencies (React, Vite, Lucide)
-npm install
+##  Frontend Setup
 
-# Start the development server
-npm run dev
+The frontend runs on port 5173.
 
+Steps:
+- Navigate to the frontend folder: cd frontend
+- Install dependencies: npm install
+- Start the dev server: npm run dev
 
-Click the link shown in the terminal (usually http://localhost:5173) to view the app.
+Open the URL shown in the terminal (usually http://localhost:5173).
 
-ℹ️ Architectural Decisions
+---
 
-Database Strategy (Scalability Note)
+##  Architectural Decisions
 
-For the purpose of this assignment and to ensure maximum portability for the evaluator, I implemented a File-Based JSON Database (backend/database.json).
+###  Database Strategy (Scalability Note)
 
-Why? It allows the application to run immediately on any machine without requiring a local MongoDB service installation or cloud configuration.
+A file-based JSON database (backend/database.json) is used to ensure maximum portability.
 
-Scalability: The code structure is modular. In a production environment, the readDB and writeDB helper functions in server.js can be easily replaced with Mongoose/MongoDB calls without changing the API logic or Frontend.
+Why this approach?
+- No external database setup required
+- Runs instantly on any machine
+- Ideal for evaluation and PoC purposes
 
-🔌 API Endpoints
+Scalability:
+- Backend structure is modular
+- readDB and writeDB helper functions can be replaced with MongoDB/Mongoose
+- No changes required to API routes or frontend logic
 
-Method
+---
 
-Endpoint
+##  API Endpoints
 
-Description
+Method | Endpoint | Description | Protected
+POST | /api/register | Register a new user | No
+POST | /api/login | Login and receive JWT | No
+GET | /api/profile | Get logged-in user details | Yes
+GET | /api/tasks | Fetch all user tasks | Yes
+POST | /api/tasks | Create a new task | Yes
+PUT | /api/tasks/:id | Update or toggle task status | Yes
+DELETE | /api/tasks/:id | Delete a task | Yes
 
-Protected?
+---
 
-POST
+##  Proof of Concept Notes
 
-/api/register
+- Designed as a scalable PoC
+- Demonstrates real-world authentication and CRUD patterns
+- Easily extendable to production-grade architecture
 
-Register a new user
+---
 
-No
+##  Final Notes
 
-POST
+This project showcases:
+- End-to-end full-stack development
+- Secure authentication flow
+- Clean and modern UI/UX
+- Scalable backend architecture
 
-/api/login
-
-Login and receive JWT
-
-No
-
-GET
-
-/api/profile
-
-Get logged-in user details
-
-Yes (Token)
-
-GET
-
-/api/tasks
-
-Get all tasks for user
-
-Yes (Token)
-
-POST
-
-/api/tasks
-
-Create a new task
-
-Yes (Token)
-
-PUT
-
-/api/tasks/:id
-
-Update task (toggle status)
-
-Yes (Token)
-
-DELETE
-
-/api/tasks/:id
-
-Delete a task
-
-Yes (Token)
-
-Built for the Frontend Developer Intern Task.
